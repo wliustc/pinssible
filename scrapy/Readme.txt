@@ -1,52 +1,52 @@
-ÏîÄ¿ËµÃ÷:
-   1. Ö÷ÒªÓÃµ½µÄ¿ªÔ´¿ò¼Ü
+é¡¹ç›®è¯´æ˜:
+   1. ä¸»è¦ç”¨åˆ°çš„å¼€æºæ¡†æ¶
        scrapy, BeautifulSoup
-   2. ¹¤¾ß°²×°Ïà¹ØµÄ
-      °²×° scrapy 
+   2. å·¥å…·å®‰è£…ç›¸å…³çš„
+      å®‰è£… scrapy 
 	    sudo apt-get install python-lxml  xml-core python-dev
 	    sudo pip install w3lib lxml cssselect Twisted-Core html5lib beautifulsoup4 Twisted	 
 		
-      selenium Ïà¹ØµÄ
+      selenium ç›¸å…³çš„
 	    sudo pip install selenium
 		sudo apt-get install xfvb
 		 
-    3. scrapy ×¥È¡ÓÅ»¯
-	   1. Ğ´ /etc/hosts, ½«ÍøÕ¾·şÎñÆ÷µÄip Ğ´Èë
+    3. scrapy æŠ“å–ä¼˜åŒ–
+	   1. å†™ /etc/hosts, å°†ç½‘ç«™æœåŠ¡å™¨çš„ip å†™å…¥
 	   
-	4. DB ÓÃÁË mysql, db ÎÄ¼şÎª scrapy.sql
-		Êı¾İ¿âÉèÖÃ:
+	4. DB ç”¨äº† mysql, db æ–‡ä»¶ä¸º scrapy.sql
+		æ•°æ®åº“è®¾ç½®:
 		   db_name: ecommerce
 		   db_user: root
 		   db_pass:  root
 		   db_port:  3306
 		   
-		   ÅäÖÃÎ»ÖÃ 
+		   é…ç½®ä½ç½® 
 		     ccc/pipelines.py
 			 amazon/pipelines.py
 			 amazon/spider/camel.py
 	
-	5. ÎÄ¼şĞŞ¸Ä
+	5. æ–‡ä»¶ä¿®æ”¹
 	   1. ccc/
-	            items.py      (¶¨ÒåÊı¾İ½á¹¹)
-				setting.py    (ÉèÖÃpipelines)
-				pipelines.py  (ÊµÏÖpipelines)
+	            items.py      (å®šä¹‰æ•°æ®ç»“æ„)
+				setting.py    (è®¾ç½®pipelines)
+				pipelines.py  (å®ç°pipelines)
 		  ccc/spider/
-				camel.py       (ÊµÏÖÅÀ³æÂß¼­)
+				camel.py       (å®ç°çˆ¬è™«é€»è¾‘)
 
        2  amazon/		  
-				items.py      (¶¨ÒåÊı¾İ½á¹¹)
-				setting.py    (ÉèÖÃpipelines)
-				pipelines.py  (ÊµÏÖpipelines)
+				items.py      (å®šä¹‰æ•°æ®ç»“æ„)
+				setting.py    (è®¾ç½®pipelines)
+				pipelines.py  (å®ç°pipelines)
 		  ccc/spider/
-				products.py    (ÊµÏÖÅÀ³æÂß¼­)
+				products.py    (å®ç°çˆ¬è™«é€»è¾‘)
 				
-	  6. ÔËĞĞ
-	      1. ½øÈë ccc Ä¿Â¼, 
-			  ÔËĞĞ scrapy crawl  camel À´×¥È¡ 
-		      http://camelcamelcamel.com/top_drops µÄÊı¾İ
-		  2.  ½øÈë amazon Ä¿Â¼,
-		      ÔËĞĞ scrapy crawl  products À´×¥È¡ 
-		      http://www.amazon.com µÄÊı¾İ
+	  6. è¿è¡Œ
+	      1. è¿›å…¥ ccc ç›®å½•, 
+			  è¿è¡Œ scrapy crawl  camel æ¥æŠ“å– 
+		      http://camelcamelcamel.com/top_drops çš„æ•°æ®
+		  2.  è¿›å…¥ amazon ç›®å½•,
+		      è¿è¡Œ scrapy crawl  products æ¥æŠ“å– 
+		      http://www.amazon.com çš„æ•°æ®
 	   
 	   
 	   

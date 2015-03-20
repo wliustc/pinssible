@@ -1,43 +1,43 @@
-ÏîÄ¿ËµÃ÷:
-   1. Ö÷ÒªÓÃµ½µÄ¿ªÔ´¿ò¼Ü
+é¡¹ç›®è¯´æ˜:
+   1. ä¸»è¦ç”¨åˆ°çš„å¼€æºæ¡†æ¶
        selenium, BeautifulSoup
-   2. ¹¤¾ß°²×°Ïà¹ØµÄ
-      °²×° scrapy 
+   2. å·¥å…·å®‰è£…ç›¸å…³çš„
+      å®‰è£… scrapy 
 	    sudo apt-get install python-lxml  xml-core python-dev
 	    sudo pip install w3lib lxml cssselect Twisted-Core html5lib beautifulsoup4 Twisted	 
 		
-      selenium Ïà¹ØµÄ
+      selenium ç›¸å…³çš„
 	    sudo pip install selenium
 		sudo apt-get install xfvb	 
     
 	   
-	3. DB ÓÃÁË mysql, db ÎÄ¼şÎª crawl.sql
-		Êı¾İ¿âÉèÖÃ:
+	3. DB ç”¨äº† mysql, db æ–‡ä»¶ä¸º crawl.sql
+		æ•°æ®åº“è®¾ç½®:
 		   db_name: ecommerce
 		   db_user: root
 		   db_pass:  root
 		   db_port:  3306
 		   
-		   Èç¹ûºÍÊµ¼ÊµÄ²»·ûºÏ, ĞèÒªĞŞ¸Ä
+		   å¦‚æœå’Œå®é™…çš„ä¸ç¬¦åˆ, éœ€è¦ä¿®æ”¹
 		    ccc/funs_test.py			
 			amazon/grab_amazon_items_v2.py
 			amazon/grab_amazon_items.py
 			amazon/item_v2.py	
 	
-	4. ÎÄ¼şËµÃ÷
-	       ccc/funs.py  º¯Êı¶¨ÒåÎÄ¼ş
-		   ccc/funs_test.py  main ÎÄ¼ş
-		   amazon/funs.py º¯Êı¶¨ÒåÎÄ¼ş
-		   amazon/grab_amazon_items_v2 Êı¾İ×¥È¡ÎÄ¼ş
+	4. æ–‡ä»¶è¯´æ˜
+	       ccc/funs.py  å‡½æ•°å®šä¹‰æ–‡ä»¶
+		   ccc/funs_test.py  main æ–‡ä»¶
+		   amazon/funs.py å‡½æ•°å®šä¹‰æ–‡ä»¶
+		   amazon/grab_amazon_items_v2 æ•°æ®æŠ“å–æ–‡ä»¶
 		   
 				
-	 5. ÔËĞĞ
-	      1. ½øÈë ccc Ä¿Â¼, 
-			  ÔËĞĞ python funs_test À´×¥È¡ 
-		      http://camelcamelcamel.com/top_drops µÄÊı¾İ
-		  2.  ½øÈë amazon Ä¿Â¼,
-		      ÔËĞĞ python grab_amazon_items_v2 À´×¥È¡ 
-		      http://www.amazon.com µÄÊı¾İ
+	 5. è¿è¡Œ
+	      1. è¿›å…¥ ccc ç›®å½•, 
+			  è¿è¡Œ python funs_test æ¥æŠ“å– 
+		      http://camelcamelcamel.com/top_drops çš„æ•°æ®
+		  2.  è¿›å…¥ amazon ç›®å½•,
+		      è¿è¡Œ python grab_amazon_items_v2 æ¥æŠ“å– 
+		      http://www.amazon.com çš„æ•°æ®
 	   
 	   
 	   
