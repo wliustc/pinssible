@@ -1,0 +1,65 @@
+# -*- coding: utf-8 -*-
+import scrapy
+#from items import CccItem
+from funs import *
+from ccc.items import CccItem
+
+class CamelSpider(scrapy.Spider):
+    name = "camel"
+    allowed_domains = ["www.camelcamelcamel.com"]
+    start_urls = (
+        'http://camelcamelcamel.com/top_drops',
+    )
+
+    def parse(self, response):
+	#fd = open("camel.html", "w")
+	#fd.write(response.body)
+	#fd.close()
+	#print "Done crawl"
+	items = []  #CccItem()
+	idx = 0
+	for sel in response.xpath("//a[@href='/support/gdb']/text()"):
+		#print "%2d:  %s" % (idx, sel.extract().strip())
+		is_best = sel.extract().strip()
+		if (is_best.startswith('Best')):
+			is_best = 1
+		else:
+			is_best = 0
+		item = CccItem()
+		item['is_best'] = is_best
+		items.append(item)
+		idx = idx + 1
+	idx = 0
+	print "Total items created: ",  len(items)
+	for cur_price in response.xpath("//div[@class='current_price']/text()"):
+		#print str(idx),  cur_price.extract().strip()
+		items[idx]['sale_price'] = get_price(cur_price.extract().strip() )
+		idx = idx + 1
+	idx = 0
+	print "List prices" + "*" * 50
+	for cur_price in response.xpath("//div[@class='deal_bottom_inner']/div[@class='compare_price'][1]/span/text()"):
+                #print str(idx),  cur_price.extract().strip()
+                items[idx]['list_price'] = get_price(cur_price.extract().strip())
+		idx = idx + 1
+	idx = 0
+	"""  Below does not work
+	for item in response.xpath("//div[@class='deal_top_inner']"):
+		print idx #, item.xpath("@href").extract().strip()
+		idx = idx + 1
+	"""
+
+	for cur_price in response.xpath("//div[@class='deal_bottom_inner']/div[@class='retailer_link']/a"):
+                client_event = cur_price.xpath("@onclick").extract()[0].strip()
+                asin = client_event.split(",")[2]
+		asin = asin.split("-")[0].replace('\'', '')
+		asin = asin.strip()
+		#print asin
+		items[idx]['asin'] = asin		
+
+		idx = idx + 1
+
+	day_index = get_day_index()
+        for item in items:
+	    item['fetch_day'] = day_index
+            print item
+	return items

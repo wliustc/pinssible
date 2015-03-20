@@ -1,0 +1,47 @@
+# -*- coding: utf-8 -*-
+import scrapy
+#from items import CccItem
+from funs import *
+from ccc.items import CccItem
+
+def html_trim(str):
+	str = re.sub("\s+", ' ', str)
+	return str.strip()
+
+class CamelSpider(scrapy.Spider):
+	name = "camel"
+	allowed_domains = ["www.camelcamelcamel.com"]
+	start_urls = (
+		'http://camelcamelcamel.com/top_drops',
+	)
+
+	def parse(self, response):
+		print "*" * 50 , "Calling parse", "*" * 20
+		idx = 0
+		#print response.xpath("//td.deal_top_outer]")
+		for sel in response.xpath("//td/div"):
+			url = sel.xpath('h3/a/@href').extract()
+			if (url):
+				url = url[0]
+				url = url.split("?")[0]
+				asin = url[url.rfind("/") +1 :]
+				is_best = sel.xpath('h3/div/a/text()').extract()
+				if (is_best):
+					is_best = html_trim(is_best[0])
+				else:
+					is_best = ""
+				print idx, asin, is_best
+			else:
+				current_price = sel.xpath("div[1]/text()").extract()
+				list_price = sel.xpath("div[2]/span/text()").extract()
+				print current_price, list_price
+			#print idx, sel.xpath('h3/a/@href').extract()
+			#print idx, sel.xpath('h3/div/a/text()').extract()
+			idx = idx + 1
+			#print sel.xpath("text") .extract()
+			#link = sel.xpath("a")
+			#best_tag = sel.xpath("div/a")
+			#print link.xpath("@href/text()").extract()
+		#for sel in response.xpath("//a[@href='/support/gdb']/text()"):
+		#	print sel.extract().strip()
+			

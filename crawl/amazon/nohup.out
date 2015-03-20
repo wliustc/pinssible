@@ -1,0 +1,5 @@
+ERROR Occured get_contents_by_urllib:  http://www.amazon.com/dp/1400324297/?psc=1
+Traceback (most recent call last):
+  File "grab_amazon_items_v2.py", line 49, in <module>
+    time.sleep(1)
+AttributeError: 'builtin_function_or_method' object has no attribute 'sleep'
